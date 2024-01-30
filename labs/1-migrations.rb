@@ -16,8 +16,8 @@
 #   and Contact).  Follow the steps below for Salesperson, and then repeat
 #   for Activity.
 
-# 1. in terminal, generate a model and table for ______
-# rails generate model _____
+# 1. in terminal, generate a model and table for ____
+# rails generate model Salesperson
 
 # 2. open newly generated files
 
@@ -27,3 +27,4 @@
 # rails db:migrate
 
 # 5. check the schema to confirm the change
+# via cat log/development.log

@@ -6,6 +6,7 @@ class CreateContacts < ActiveRecord::Migration[7.1]
       t.string "email"
       t.integer "company_id" #this is the foreign key to the companies table; i.e., 
       # which company does contact work for
+      # could change t to "zebra" and t.string to "zebra.string" 
 
       t.timestamps
     end
