@@ -23,7 +23,7 @@ puts new_company.inspect
 
 new_company["name"] = "Apple"
 new_company["city"] = "Cupertino"
-new_company["state"] = "California"
+new_company["state"] = "CA"
 new_company["url"] = "https://www.apple.com"
 
 # so far values have not been inserted into table yet --> need method .save
@@ -52,8 +52,18 @@ puts "There are #{Company.all.count} companies"
 # rails runner data.rb --> see data in tabular format
 
 # 3. query companies table to find all row with California company
+all_companies = Company.all
+## puts all_companies.inspect
+
+cali_companies = Company.where({"state" => "CA"})
+## puts cali_companies.inspect
+## puts "Companies in Cali: #{cali_companies.count}"
 
 # 4. query companies table to find single row for Apple
+# could do: apple = Company.where({"name" => "Apple"})[0]
+# alternative is: ".find_by" method
+apple = Company.find_by({"name" => "Apple"}) # assumes there is only one value for Apple
+puts apple.inspect
 
 # 5. read a row's column value
 
