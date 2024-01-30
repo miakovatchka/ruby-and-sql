@@ -35,7 +35,6 @@ new_company2 = Company.new # opens up new hash (Company.New)
 new_company2["name"] = "Amazon"
 new_company2["city"] = "Seattle"
 new_company2["state"] = "WA"
-new_company2["url"] = "https://www.amazon.com"
 new_company2.save
 
 puts "There are #{Company.all.count} companies"
@@ -63,10 +62,21 @@ cali_companies = Company.where({"state" => "CA"})
 # could do: apple = Company.where({"name" => "Apple"})[0]
 # alternative is: ".find_by" method
 apple = Company.find_by({"name" => "Apple"}) # assumes there is only one value for Apple
-puts apple.inspect
+# ^^^ *
+## puts apple.inspect
 
 # 5. read a row's column value
+puts apple["url"] # need to find row first, i.e., this *
 
 # 6. update a row's column value
+amazon = Company.find_by({"name" => "Amazon"})
+amazon["url"] = "https://www.amazon.com"
+# UPDATE companies SET url = "amazon.com" WHERE ... (sql code)
+amazon.save
+# saves new addition to table !!!
 
 # 7. delete a row
+twitter = Company.find_by({"name" => "Twitter"})
+twitter.destroy
+
+puts "There are #{Company.all.count} companies"
